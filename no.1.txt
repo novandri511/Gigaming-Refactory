@@ -1,0 +1,294 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Hello World");
+		Console.WriteLine("Ini nomor 1");
+		Name n = new Name();
+		string nama = n.nama();
+	
+		Console.WriteLine("Ini nomor 3");
+		Hitung h = new Hitung();
+		int masukan = h.masukan();
+		
+		Console.WriteLine("Ini nomor 5");
+		GanjilGenap g = new GanjilGenap();
+		int hitungannya = g.hitungannya();
+		
+		Console.WriteLine("Ini nomor6");
+		Grade d = new Grade();
+		string nilai = d.kategori();
+		
+		Console.WriteLine("Ini nomor 7");
+		Konversi x = new Konversi();
+		int z= x.hasilKonversi();
+		
+		Console.WriteLine("Ini nomor 8");
+		Kabisat b = new Kabisat();
+		int y = b.tahunnya();
+			
+		Console.WriteLine("Ini nomor 10");
+		Calculation l = new Calculation();
+		int kalkulasi = l.kalkulasinya();
+		
+		Console.WriteLine("Ini nomor 12");
+		Kapital k = new Kapital();
+		string kalimat = k.kalimatnya();
+		
+		Console.WriteLine("Ini nomor 13");
+		CountWords c = new CountWords();
+		string hitung = c.itung();
+		
+		Console.WriteLine("Ini nomor 18");
+		Mencari r = new Mencari();
+		int e = r.pencarian();
+		
+		Console.WriteLine("Ini nomor 19");
+		Sorting s = new Sorting();
+		int[] ini = s.urutkan();
+		
+	}
+//NOMOR 1					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Hello World");
+		Name n = new Name();
+		string nama = n.nama();
+	
+	}
+	
+	class Name{
+		string name;
+		public string nama(){
+			Console.WriteLine("Masukkan namamu");
+			string nama = Console.ReadLine();
+			Console.WriteLine($"namaku adalah {nama}");
+		return name;
+		}
+	}
+}
+
+
+//NOMOR 2
+			class Person{
+			
+				public DateTime Birthday { get; set; }
+
+				public Person(DateTime birthday)
+					{
+					
+						Birthday = birthday();
+					}
+			public int Age
+				{ get
+						{
+						DateTime today = DateTime.Today;
+						int age = today.Year - Birthday.Year;
+						if (today < Birthday.AddYears(age))
+							age--;
+						return age;
+						}
+				}
+	
+			public int RemainingDays
+			{
+					get
+					{
+						DateTime today = DateTime.Today;
+						DateTime nextBirthday = Birthday.AddYears(Age + 1);
+
+						TimeSpan difference = nextBirthday - DateTime.Today;
+
+						return Convert.ToInt32(difference.TotalDays);
+					}
+			}
+//NOMOR 3 hitung panjang
+	class Hitung{
+		int jumlahHuruf;
+		public int masukan(){
+							string masukkannya;
+							
+							Console.WriteLine("Ketik masukknya");
+							masukkannya= Console.ReadLine();
+							jumlahHuruf = masukkannya.Length;
+							Console.WriteLine($"{masukkannya} have {jumlahHuruf} character");
+							return jumlahHuruf;
+								}
+				}
+
+
+//Nomor 5
+	class GanjilGenap{
+			int masukkan;
+			public int hitungannya(){
+					string kondisi;
+					Console.WriteLine("Masukkan angkanya");
+					masukkan = Convert.ToInt32(Console.ReadLine());
+					if(masukkan%2 == 0){
+										kondisi = "Even";
+										} else { kondisi = "Odd";}
+					Console.WriteLine($"Is{kondisi}({masukkan})");
+			return masukkan;
+								}
+					}
+			
+	}
+
+//NOMOR 6
+	class Grade{
+		string nilai;
+		public string kategori(){
+								string gradeA= "A", gradeB= "B", gradeC = "C", gradeD = "D", gradeE = "E";
+								 int masukkan;
+							Console.WriteLine("Masukkan grade");
+							masukkan = Convert.ToInt32(Console.ReadLine());
+							if( masukkan >= 90){
+								nilai = gradeA;} 
+								else if (masukkan > 80 || masukkan <= 89){
+							          nilai = gradeB;} else if (masukkan > 70 || masukkan <= 79){
+											nilai =gradeC;} else if (masukkan >60 || masukkan <= 69){
+													nilai = gradeD;}	else if (masukkan <=59){
+															nilai = gradeE;}
+									Console.WriteLine(nilai);
+							return nilai;
+								}
+				}
+
+class CountWords{
+		string hitung;
+		public string itung(){
+			string text;
+			Console.WriteLine("Masukkan kalimatnya");
+			text = Console.ReadLine();
+			int wordCount = 0, index = 0;
+						// skip whitespace until first word
+						while (index < text.Length && char.IsWhiteSpace(text[index]))
+							index++;
+						while (index < text.Length)
+						{
+							// check if current char is part of a word
+							while (index < text.Length && !char.IsWhiteSpace(text[index]))
+								index++;
+							wordCount++;
+							// skip whitespace until next word
+							while (index < text.Length && char.IsWhiteSpace(text[index]))
+								index++;
+						}
+			Console.WriteLine($"{wordCount}");
+			return hitung;
+							}
+
+//NOMOR 12
+class Kapital{
+					string kalimat;
+			public string kalimatnya(){
+									string text, setelahKapital;
+									Console.WriteLine("Masukkan kalimat yang ingin di kapitalkan");
+									text = Console.ReadLine();
+									setelahKapital = text.ToUpper();
+									Console.WriteLine($"{setelahKapital}");
+									return kalimat;
+										}
+					}
+
+// NOMOR 10
+class Calculation{
+					int kalkulasi;
+					public int kalkulasinya(){
+						int x, y, jumlah, kurang, bagi, kali;
+											Console.WriteLine("Masukkan nilai pertama");
+											x = Convert.ToInt32(Console.ReadLine());
+											Console.WriteLine("Masukkan nilai kedua");
+											y = Convert.ToInt32(Console.ReadLine());
+									jumlah= x+y;
+									kurang= x-y;
+									bagi= x/y;
+									kali= x*y;
+											Console.WriteLine($"Summary result {jumlah}");
+											Console.WriteLine($"Substract result {kurang}");
+											Console.WriteLine($"Devide result {bagi}");
+											Console.WriteLine($"Multiply result {kali}");
+						return kalkulasi;
+											}
+	}
+
+//NOMOR 8 
+	class Kabisat{
+				int y;	
+					public int tahunnya(){
+						string kondisiTahun;
+						Console.WriteLine("Masukkan tahunnya");
+						int n = Convert.ToInt32(Console.ReadLine());
+						if(n%4 == 0){
+								kondisiTahun= "kabisat";} else { kondisiTahun= "Bukan kabisat";}	
+						Console.WriteLine($"masukan tahunnya adalah tahun {kondisiTahun}");			
+						return y;	}
+				}
+
+//NOMOR 7
+	class Konversi{
+		int z;
+				public int hasilKonversi(){
+					double celcius, fahren, kelvin;
+					double celciustofahren, fahrentocelcius, celciustokelvin, kelvintocelcius, kelvintofahren, fahrentokelvin;
+					Console.WriteLine("masukkan suhu celcius");
+					celcius = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("masukkan suhu fahrenheit");
+					fahren = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("masukkan suhu kelvin");
+					kelvin = Convert.ToDouble(Console.ReadLine());
+					
+					celciustofahren = 1.8*celcius +32;
+					fahrentocelcius = 5*(fahren-32)/9;
+					celciustokelvin = celcius + 273;
+					kelvintocelcius = kelvin - 273;
+					kelvintofahren = 9*(kelvin-273)/5 + 32;
+					fahrentokelvin = 5*(fahren-32)/9 + 273;
+					
+					Console.WriteLine($" suhu {celcius} celcius jadi {celciustofahren} fahrenheit");
+					Console.WriteLine($" suhu {fahren} fahrenheit jadi {fahrentocelcius} celcius");
+					Console.WriteLine($" suhu {celcius} celcius jadi {celciustokelvin} kelvin");
+					Console.WriteLine($" suhu {kelvin} celcius jadi {kelvintocelcius} celcius");
+					Console.WriteLine($" suhu {kelvin} kelvin jadi {kelvintofahren} fahrenheit");
+					Console.WriteLine($" suhu {fahren} fahrenheit jadi {fahrentokelvin} kelvin");
+					return z;
+											}
+					}
+
+
+//NOMOR 18
+class Mencari{
+					int e;
+					public int pencarian(){
+						int[] numbers = {2, 4, 54, 12, -65, 19, 40, 92, 88, 330, -4, 54};
+					
+											int size = numbers.Length;
+											int sum = 0;
+										   int average = 0;
+											int max, min,j;
+												max = numbers[0];
+											  min = numbers[0];
+											for (int i = 0; i < size; i++)
+											{
+												sum += numbers[i];
+											}
+											average = sum / size; 
+											  
+											  for(j=1; j<size; j++) {
+												 if(numbers[j]>max) {
+													max = numbers[j];
+												 }
+												 if(numbers[j]<min) {
+													min = numbers[j];
+												 }
+											  }
+						Console.WriteLine($"nilai maksimumnya {max}");
+						Console.WriteLine($"nilai minimalnya {min}");
+						Console.WriteLine($"rata ratanya {average}");
+											return e;
+											}
+				}
